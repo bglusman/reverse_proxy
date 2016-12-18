@@ -9,6 +9,6 @@ defmodule ReverseProxy.Clients.Connect do
   end
 
   def process_request_headers(headers) do
-    List.keyreplace(headers, "accept", 0, {"accept", "application/http"})
+    List.keyreplace(headers, "accept", 0, {"accept", "text/html"})
   end
 end

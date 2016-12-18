@@ -12,8 +12,6 @@ defmodule ReverseProxy.Terraformers.Connect do
   get _ do
     %{method: "GET", request_path: request_path, params: params, req_headers: req_headers} = conn
     res = Connect.get!(request_path, req_headers, [params: Map.to_list(params)])
-    require IEx
-    IEx.pry
     send_response({:ok, conn, res})
   end
 
