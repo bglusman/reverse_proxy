@@ -1,4 +1,4 @@
-defmodule ReverseProxy.FooController do
+defmodule ReverseProxy.LocalController do
   use ReverseProxy.Web, :controller
 
   def index(conn, _) do

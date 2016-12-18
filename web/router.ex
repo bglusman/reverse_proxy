@@ -1,17 +1,15 @@
 defmodule ReverseProxy.Router do
   use ReverseProxy.Web, :router
   use Terraform,
-    terraformer: ReverseProxy.Terraformers.Giphy
+    terraformer: ReverseProxy.Terraformers.Connect
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :http do
+    plug :accepts, ["http"]
   end
 
-  scope "/v1", ReverseProxy do
-    pipe_through :api
+  scope "/", ReverseProxy do
+    pipe_through :http
 
-    get "/foo", FooController, :index
-    get "/bar", BarController, :index
-    get "/baz", BazController, :index
+    get "/not_rails", LocalController, :index
   end
 end
